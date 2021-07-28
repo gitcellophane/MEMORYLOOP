@@ -18,50 +18,15 @@ kaboom({
 
 //loadSound('level1-music', 'LEVEL_1.mp3')
 const ML1 = document.getElementById("MUSIC_LEVEL1");
-const DO = document.getElementById("DO");
-const RE = document.getElementById("RE");
-const MEI = document.getElementById("MEI");
-const FA = document.getElementById("FA");
-const SOL = document.getElementById("SOL");
+const ML2 = document.getElementById("MUSIC_LEVEL2");
 
-const notes = []
-
-notes.push(DO)
-notes.push(RE)
-notes.push(MEI)
-notes.push(FA)
-notes.push(SOL)
-
-// ML1.addEventListener('ended',myHandler,false);
-// function myHandler(e) {
-//     console.log('ended');
-//     setTimeout(function(){
-//         document.getElementById('MUSIC_LEVEL1').play();
-//     }, 5000);
-// }
 
 
 loadRoot('IMAGES/')
-// loadSprite('link-going-left', 'wiz16.png')
-// loadSprite('link-going-right', 'wiz16.png')
-// loadSprite('link-going-down', 'wiz16.png')
-// loadSprite('link-going-up', 'wiz16.png')
-// loadSprite('vWALL', 'tileset/vWALL.png')
-// loadSprite('top-wall', '2by2wall.png')
-// loadSprite('vWALLb', 'tileset/vWALLb.png')
-// loadSprite('right-wall', '2by2wall.png')
-// loadSprite('vWALL-head', 'tileset/vWALL-head.png')
-// loadSprite('bottom-right-wall', '2by2wall.png')
-// loadSprite('top-left-wall', '2by2wall.png')
-// loadSprite('top-right-wall', '2by2wall.png')
+
 loadSprite('invisi-wall', 'tileset/invisi_WALL.png')
 
-//loadSprite('top-door', 'hole.png')
-// loadSprite('fire-pot', '2by2wall.png')
-// loadSprite('lanterns', '2by2wall.png')
-//loadSprite('left-door', 'hole.png')
-// loadSprite('boxtop', 'boxtop.png')
-// loadSprite('boxbottom', 'boxbottom.png')
+
 loadSprite('slicer', 'bump16.png')
 loadSprite('skeletor', 'bump16.png')
 loadSprite('kaboom', 'slime16.png')
@@ -102,20 +67,6 @@ loadSprite('ripples', '/fx/ripples.png', {
     }},
 });
 
-// loadSprite('bluebug', 'bluebug_5.png', {
-//     sliceX: 5,
-//     sliceY: 2,
-//     anims: {
-//         lightOFF: {
-//             from: 0,
-//             to: 4,
-//         },
-//         lightON: {
-//             from: 5,
-//             to: 9, 
-//         }
-//     },
-// });
 
 loadSprite('orb', 'orb3.png', {
     sliceX: 4,
@@ -210,15 +161,7 @@ scene('game', ({level, score}) => {
 
         add([sprite(bgs[level]), pos(16,16), layer('bg')])
 
-        // var bx = 100;
-        // var by = 80;
-        // add([sprite('boxbottom'),
-        //     pos(bx,by),
-        //     solid(),
-        //     'wall'])
-        // add([sprite('boxtop'),
-        //     pos(bx,by-16),
-        //     layer('ui')])    
+      
 
         const scoreLabel = add([
             text('0'),
@@ -273,8 +216,14 @@ scene('game', ({level, score}) => {
 
         keyPress('a', ()=> {
             //const music = play('level1-music')
-            ML1.play()
-            ML1.loop = true
+            if (level == 0){
+                ML1.play()
+                ML1.loop = true
+            }
+            else if (level == 1){
+                ML2.play()
+                ML2.loop = true
+            }
         })
     
        
